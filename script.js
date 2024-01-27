@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function () {
+  var audioElement = document.getElementById("backgroundMusic");
+  audioElement.play();
+});
+
 let currentQuestion = {};
 const answerInput = document.getElementById("answer");
 const additionCheckbox = document.getElementById("additionCheckbox");
@@ -244,3 +249,63 @@ window.addEventListener("click", function (event) {
     answerInput.focus();
   }
 });
+
+const uploadMusicButton = document.getElementById("uploadMusic");
+
+uploadMusicButton.addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onloadend = function () {
+    backgroundMusic.src = reader.result;
+    localStorage.setItem("customMusic", reader.result);
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});
+
+window.onload = function () {
+  const customMusic = localStorage.getItem("customMusic");
+
+  if (customMusic) {
+    backgroundMusic.src = customMusic;
+  }
+};
+
+backgroundMusic.onvolumechange = function () {
+  localStorage.setItem("volume", backgroundMusic.volume);
+};
+backgroundMusic.onmuted = function () {
+  localStorage.setItem("muted", backgroundMusic.onmuted);
+};
+backgroundMusic.onpause = function () {
+  localStorage.setItem("paused", true);
+};
+backgroundMusic.onplay = function () {
+  localStorage.removeItem("paused");
+};
+
+window.onload = function () {
+  const customMusic = localStorage.getItem("customMusic");
+  const volume = localStorage.getItem("volume");
+  const muted = localStorage.getItem("muted");
+  const paused = localStorage.getItem("paused");
+
+  if (paused) {
+    backgroundMusic.pause();
+  }
+
+  if (customMusic) {
+    backgroundMusic.src = customMusic;
+  }
+
+  if (volume) {
+    backgroundMusic.volume = volume;
+  }
+
+  if (muted) {
+    backgroundMusic.onmuted = muted;
+  }
+};
