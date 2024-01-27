@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Math Practice</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Inside the head section of your HTML file -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch((error) => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Add a modal container -->
+    <div id="settingsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <!-- Your existing settings content goes here -->
+            <div class="digits">
+                <label>
+                    <select id="digitSelector">
+                        <option value="1">1 digit number</option>
+                        <option value="2">2 digit number</option>
+                        <option value="3">3 digit number</option>
+                        <option value="4">4 digit number</option>
+                        <option value="5">5 digit number</option>
+                        <option value="6">Random but highest 5 digit</option>
+                        <option value="7">Any number over 5 digit to 15 digitt</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="operations">
+                <ul>
+                    <li><label><input type="checkbox" id="additionCheckbox" checked> Addition (+)</label></li>
+                    <li><label><input type="checkbox" id="subtractionCheckbox" checked> Subtraction (-)</label></li>
+                    <li><label><input type="checkbox" id="multiplicationCheckbox" checked> Multiplication (*)</label>
+                    </li>
+                    <li><label><input type="checkbox" id="divisionCheckbox" checked> Division (/)</label></li>
+                    <li><label><input type="checkbox" id="squareCheckbox" checked> Square (^2)</label></li>
+                    <li><label><input type="checkbox" id="cubeCheckbox" checked> Cube (^3)</label></li>
+                    <li><label><input type="checkbox" id="sqrtCheckbox" checked> Square Root (√)</label></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div
+            style="background-color: #141414; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+            <h3 style="letter-spacing: 3px; color: #404040; text-align: center; margin: 0;">MENTAL
+                MATH</h3>
+            <button style="justify-self: flex-end;" class="settingsButton" id="settingsButton">Settings</button>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="container">
+            <div style="font-size: 100px;" id="question"></div>
+            <input type="text" id="answer" placeholder="?" class="invisible-input">
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+nav {
+  background-color: #141414;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0;
+}
+
+h2 {
+  letter-spacing: 2px;
+  color: #404040;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: row; /* Stack elements horizontally */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
+  background-color: #080808;
+}
+
+.container {
+  color: #c9c9c9;
+  text-align: center;
+  background-color: #080808;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+  position: relative; /* Add this to position the answer input */
+}
+
+.invisible-input {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 150px;
+  height: 80px;
+  opacity: 100;
+  background-color: #080808;
+  color: #323232;
+  font-size: 100px;
+  text-align: center; /* Align text to the right */
+  direction: ltr; /* Set text direction to right-to-left */
+  caret-color: transparent;
+  left: 0;
+}
+
+.settings {
+  background-color: #141414;
+  padding: 30px;
+  border-radius: 20px;
+  position: fixed;
+  right: 40px; /* Adjust as needed */
+  top: 150px; /* Adjust as needed */
+}
+
+.digits {
+  margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+.operations {
+  color: white;
+  margin-top: 20px; /* Add margin at the top */
+}
+
+.operations li {
+  list-style: none;
+}
+
+.operations label {
+  margin-right: 15px; /* Add some margin between checkboxes */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #141414;
+  padding: 30px;
+  padding-top: 10px;
+  border-radius: 20px;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #aaa;
+}
+
+.settingsButton {
+  background-color: #4d804d;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
